@@ -36,3 +36,39 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore asset builds
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+# Ignore vendor JavaScript
+/vendor/javascript/*
+
+# Ignore Yarn or npm lock files (optional if you want to keep them)
+*.log
+*.lock
+
+# Ignore generated files
+/public/assets
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore database files
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore secrets and keys
+/config/master.key
+/config/credentials.yml.enc
+
+# Ignore system files
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
