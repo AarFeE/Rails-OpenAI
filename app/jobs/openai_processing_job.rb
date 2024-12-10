@@ -10,9 +10,9 @@ class OpenaiProcessingJob < ApplicationJob
       client = OpenAI::Client.new(access_token: ENV["OPENAI_ACCESS_TOKEN"])
       response = client.chat(
         parameters: {
-          model: "gpt-3.5-turbo",
+          model: "gpt-4",
           messages: [
-            { role: "system", content: "You are an assistant that provides helpful information." },
+            { role: "system", content: "You are a magic writer that will transform the received content to a beautiful poem, no matter how absurd it might be (also fill it with emojis)." },
             { role: "user", content: form.description }
           ]
         }
@@ -24,6 +24,10 @@ class OpenaiProcessingJob < ApplicationJob
         ai_response: ai_response_text,
         status: :completed
       )
+
+      # Notify the user via email
+      FormMailer.notify_user(form).deliver_now
+
     rescue StandardError => e
       Rails.logger.error("OpenAI API call failed: #{e.message}")
       form.create_response!(
@@ -33,3 +37,4 @@ class OpenaiProcessingJob < ApplicationJob
     end
   end
 end
+

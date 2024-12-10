@@ -26,6 +26,9 @@ gem "ruby-openai"
 gem "tailwindcss-rails"
 # Use Rspec to test Ruby code [https://github.com/rspec/rspec-rails]
 gem "rspec-rails"
+# Use SQLite for local DB Testing
+gem 'sqlite3'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -58,8 +61,6 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  # Use database_cleaner to clean the database between tests
-  gem "database_cleaner"
   # Use factory_bot to create test data
   gem "factory_bot_rails"
   # Use faker to create test data

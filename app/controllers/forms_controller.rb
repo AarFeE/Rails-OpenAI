@@ -31,6 +31,6 @@ class FormsController < ApplicationController
   private
 
   def form_params
-    params.require(:form).permit(:name, :description, :processed_in_job)
+    params.require(:form).permit(:name, :description, :processed_in_job, :email)
   end
 end

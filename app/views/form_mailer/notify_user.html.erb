@@ -1,0 +1,25 @@
+<!-- app/views/form_mailer/notify_user.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Form Processing is Complete</title>
+</head>
+<body>
+  <h1>Thank you for submitting your form!</h1>
+  <p>We have successfully processed your form submission.</p>
+
+  <h2>Submission Details:</h2>
+  <ul>
+    <li><strong>Name:</strong> <%= @form.name %></li>
+    <li><strong>Email:</strong> <%= @form.email %></li>
+    <li><strong>Message:</strong> <%= @form.message %></li>
+    <li><strong>Submitted At:</strong> <%= @form.created_at.strftime('%B %d, %Y at %I:%M %p') %></li>
+  </ul>
+
+  <p>If you need to contact us, feel free to reply to this email.</p>
+
+  <footer>
+    <p>&copy; 2024 Your Company Name</p>
+  </footer>
+</body>
+</html>

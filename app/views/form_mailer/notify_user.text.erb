@@ -1,0 +1,15 @@
+<!-- app/views/form_mailer/notify_user.text.erb -->
+Thank you for submitting your form!
+
+We have successfully processed your form submission.
+
+Submission Details:
+- Name: <%= @form.name %>
+- Email: <%= @form.email %>
+- Message: <%= @form.message %>
+- Submitted At: <%= @form.created_at.strftime('%B %d, %Y at %I:%M %p') %>
+
+If you need to contact us, feel free to reply to this email.
+
+Regards,
+Your Company Name
