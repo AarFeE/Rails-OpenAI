@@ -1,21 +1,6 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
-import "controllers"
+import { application } from "controllers/application" // Import the existing application instance
 import "flowbite"
 
-
-document.addEventListener("turbo:load", function() {
-    const select = document.getElementById('show-mail-select');
-    const mail = document.getElementById('mail-opt');
-
-    if (select) {
-        select.addEventListener('change', function() {
-            console.log("THE VALUE IS: " + select.value);
-            if (select.value === 'true') {
-                mail.style.display = 'block';
-            } else {
-                mail.style.display = 'none';
-            }
-        });
-    }
-});
+// Configure Stimulus
+import "controllers"

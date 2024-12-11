@@ -1,4 +1,5 @@
 <div class="container mx-auto p-4">
+  <%= link_to 'Return to Last Page', request.referer || root_path, class: 'btn btn-primary' %>
   <h1 class="text-2xl font-bold mb-4">Form Details</h1>
   
   <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -17,11 +18,19 @@
       <p class="text-gray-900"><%= @form.processed_in_job? ? 'Background Job' : 'Main Thread' %></p>
     </div>
 
+    <% if @form.processed_in_job? %>
+      <div class="mb-4">
+        <strong class="block text-gray-700 text-sm font-bold mb-2">Email:</strong>
+        <p class="text-gray-900"><%= @form.email %></p>
+      </div>
+    <% end %>
+
     <% if @form.response %>
       <div class="mb-4">
         <strong class="block text-gray-700 text-sm font-bold mb-2">AI Response:</strong>
-        <p class="text-gray-900"><%= @form.response.ai_response %></p>
-        <p class="text-sm text-gray-600">Status: <%= @form.response.status %></p>
+        <p class="text-gray-900 mb-2"><%= @form.response.ai_response %></p>
+        <Strong class="block text-gray-700 text-sm font-bold mb-2">Status:</Strong>    
+        <p class="text-gray-900"><%= @form.response.status %></p>
       </div>
     <% end %>
 

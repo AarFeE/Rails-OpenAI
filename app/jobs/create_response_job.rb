@@ -1,4 +1,4 @@
-class CreateResponseJob > ApplicationJob
+class CreateResponseJob < ApplicationJob
     queue_as :default
 
     def perform(form_id)
@@ -6,8 +6,8 @@ class CreateResponseJob > ApplicationJob
 
         ai_response = OpenaiProcessingJob.perform(form_id)
 
-        response = form.create_response(ai_response: ai_response, status: 'completed')
+        response = form.create_response(ai_response: ai_response, status: "completed")
 
-        FormMailer.response_ready_email(form).deliver_now
+        FormMailer.response_ready_email(response).deliver_now
     end
 end

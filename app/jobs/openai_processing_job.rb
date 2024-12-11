@@ -26,7 +26,7 @@ class OpenaiProcessingJob < ApplicationJob
       )
 
       # Notify the user via email
-      FormMailer.notify_user(form).deliver_now
+      FormMailer.notify_completed_form(form).deliver_now
 
     rescue StandardError => e
       Rails.logger.error("OpenAI API call failed: #{e.message}")
@@ -37,4 +37,3 @@ class OpenaiProcessingJob < ApplicationJob
     end
   end
 end
-

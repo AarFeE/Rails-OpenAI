@@ -3,7 +3,7 @@
   <head>
     <title><%= content_for(:title) || "Ai Api Monolith" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,6 +16,13 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5 flex">
+      <%= link_to request.referer || root_path, 
+        class: "absolute top-4 left-4 text-gray-600 hover:text-gray-900 transition-colors duration-300 z-10",
+        title: "Back" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+    <% end %>
       <%= yield %>
     </main>
   </body>
